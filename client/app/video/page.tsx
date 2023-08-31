@@ -6,8 +6,8 @@ export default function Video(){
 
     return (
        <>
-       <Lobby />
-       {/* <VideoChat />  */}
+       {/* <Lobby /> */}
+       <VideoChat1 /> 
        </>
     )
 }
