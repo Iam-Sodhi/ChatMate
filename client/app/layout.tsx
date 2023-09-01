@@ -14,10 +14,11 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
-      <ContextProvider>
+        <ContextProvider>
+
         {children}
         <Toaster position="top-right" />
-      </ContextProvider>
+        </ContextProvider>
       </body>
     </html>
   );

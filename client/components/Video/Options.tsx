@@ -9,9 +9,7 @@ type OptionsProps = {
 
 const Options: React.FC<OptionsProps> = ({ children }) => {
   const { me, callAccepted, name, setName, callEnded, leaveCall, callUser } =useSocketContext();
-   
   const [idToCall, setIdToCall] = useState("");
-  console.log("me in options is",me);
   return (
     <div>
       Options
@@ -26,9 +24,9 @@ const Options: React.FC<OptionsProps> = ({ children }) => {
             onChange={(e) => setName(e.target.value)}
           ></textarea>
            
-          <CopyToClipboard text={me}>
+          {/* <CopyToClipboard text={me}>
             <p className="w-full text-lg"><Assignment/> Copy Your ID </p>
-          </CopyToClipboard>
+          </CopyToClipboard> */}
         </div>
         <div>
           <label htmlFor="Call">Make a Call  </label>
@@ -40,9 +38,9 @@ const Options: React.FC<OptionsProps> = ({ children }) => {
             onChange={(e) => setIdToCall(e.target.value)}
           ></textarea>
           {callAccepted && !callEnded ? (
-            <button className="w-full text-lg" onClick={leaveCall}><PhoneDisabled/> Hang up </button>
+            <p className="w-full text-lg" onClick={leaveCall}><PhoneDisabled/> Hang up </p>
           ) : (
-            <button className="w-full text-lg" onClick={()=>callUser(idToCall)}><Phone /> Call </button>
+            <p className="w-full text-lg" onClick={()=>callUser(idToCall)}><Phone /> Call </p>
           )}
         </div>
       </form>

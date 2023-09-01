@@ -5,19 +5,19 @@ type VideoPlayerProps = {};
 
 const VideoPlayer: React.FC<VideoPlayerProps> = () => {
   const { me,name, callAccepted, myVideo, userVideo, callEnded, stream, call } =useSocketContext();
-
-    console.log("stream" ,stream);
+console.log("stream :", stream);
+    
     console.log('me in player ',me);
   return (
     <>
       <div className="video-player grid grid-cols-1  h-screen overflow-hidden">
-        {stream && (
+       {stream && (
+          
           <video
             className="video-player bg-black w-full h-full object-cover"
             autoPlay
             playsInline
             ref={myVideo}
-            muted
           />
         )}
         {callAccepted && !callEnded && (

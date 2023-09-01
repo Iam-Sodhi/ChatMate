@@ -1,5 +1,5 @@
 "use client";
-import React, { createContext, useContext, useEffect, useRef, useState } from "react";
+import React, { createContext, useContext, useEffect, useMemo, useRef, useState } from "react";
 import { io } from "socket.io-client";
 import Peer from "simple-peer";
 
@@ -19,8 +19,7 @@ interface SocketContextType {
 }
 
 export const SocketContext = createContext<SocketContextType | null>(null);
-const socket = io("http://localhost:5000"); // here put the url of deployed server when deployed
-console.log("Socket connected:", socket.connected);
+
 
 export default function ContextProvider({
   children,
@@ -37,34 +36,46 @@ export default function ContextProvider({
   const [callEnded, setCallEnded] = useState(false);
   const [name, setName] = useState("");
 
+  const socket = useMemo(()=>io('localhost:8000'),[]) // here put the url of deployed server when deployed
   useEffect(() => {
-    navigator.mediaDevices
-      .getUserMedia({ video: true, audio: true })
-      .then((currentStream) => {
-        setStream(currentStream);
-        if (myVideo.current) {
+
+      const setVideoStream=async()=>{
+        try{
+         const currentStream=await navigator.mediaDevices.getUserMedia({video: true, audio: true })
+         setStream(currentStream);
+         if(myVideo.current){
           myVideo.current.srcObject = currentStream;
+         }
+         socket.on("me", (id) => setMe(id));
+
+         socket.on("callUser", ({ from, name: callerName, signal }) => {
+           setCall({ isReceivingCall: true, from, name: callerName, signal });
+         });
         }
-      });
+        catch(error:any){
+          console.log("Error accesing camera ",error);
+        }
+      }
 
-    socket.on("me", (id) => setMe(id));
-
-    socket.on("callUser", ({ from, name: callerName, signal }) => {
-      setCall({ isReceivingCall: true, from, name: callerName, signal });
-    });
+      setVideoStream();
+     
+  
   }, []);
 
   const answerCall = () => {
     setCallAccepted(true);
 
-    const peer = new Peer({ initiator: false, trickle: false, stream });
+    const peer = new Peer({ initiator: false, trickle: false, stream:stream });
 
     peer.on("signal", (data) => {
       socket.emit("answerCall", { signal: data, to: call.from });
     });
 
     peer.on("stream", (currentStream) => {
-      userVideo.current!.srcObject = currentStream;
+      if(userVideo.current){
+
+        userVideo.current.srcObject = currentStream;
+      }
     });
 
     peer.signal(call.signal);
@@ -85,7 +96,8 @@ export default function ContextProvider({
     });
 
     peer.on("stream", (currentStream) => {
-      userVideo.current!.srcObject = currentStream;
+      if(userVideo.current)
+      {userVideo.current.srcObject = currentStream;}
     });
 
     socket.on("callAccepted", (signal) => {
@@ -133,5 +145,4 @@ export const useSocketContext=()=>{
     throw new Error("useActiveSectionContext must be used wihtin a ActieSectionContextProvider");
   }
   return context;
-
 }
