@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import React, { useState,useEffect } from "react";
 import VideoPlayer from "./VideoPlayer";
 import Options from "./Options";
 import Notifications from "./Notifications";
@@ -12,31 +12,29 @@ type VideoChat1Props = {};
 const VideoChat1: React.FC<VideoChat1Props> = () => {
   const { me,name, callAccepted, myVideo, userVideo, callEnded, answerCall,stream, call,callUser,leaveCall,setName } =useSocketContext();
   const [idToCall, setIdToCall] = useState("");
-  // Check if myVideo is defined and log its current srcObject
-  if (myVideo && myVideo.current) {
-    console.log("myVideo srcObject:", myVideo.current.srcObject);
-  }
-
-  // Check if userVideo is defined and log its current srcObject
-  if (userVideo && userVideo.current) {
-    console.log("userVideo srcObject:", userVideo.current.srcObject);
-  }
+  useEffect(() => {
+    // Set the srcObject of myVideo when stream changes
+    if (myVideo.current && stream) {
+      myVideo.current.srcObject = stream;
+    }
+  }, [stream, myVideo]);
+  console.log('myVideo: ',myVideo);
       console.log('me in player ',me);
   return (
    <> <Grid container className="">
-    {stream && (
+    {stream &&  (
       <Paper className="">
         <Grid item xs={12} md={6}>
           <Typography variant="h5" gutterBottom>{name || 'Name'}</Typography>
-          <video playsInline muted ref={myVideo} autoPlay className="" />
+          <video playsInline muted ref={myVideo} autoPlay className="w-[500px] h-[500px] " />
         </Grid>
       </Paper>
     )}
-    {callAccepted && !callEnded && (
+    {callAccepted && !callEnded &&  (
       <Paper className="">
         <Grid item xs={12} md={6}>
           <Typography variant="h5" gutterBottom>{call.name || 'Name'}</Typography>
-          <video playsInline ref={userVideo} autoPlay className=""/>
+          <video playsInline ref={userVideo} autoPlay className="w-[500px] h-[500px] "/>
         </Grid>
       </Paper>
     )}

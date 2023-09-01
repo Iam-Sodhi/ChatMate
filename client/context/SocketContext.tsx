@@ -36,7 +36,7 @@ export default function ContextProvider({
   const [callEnded, setCallEnded] = useState(false);
   const [name, setName] = useState("");
 
-  const socket = useMemo(()=>io('localhost:8000'),[]) // here put the url of deployed server when deployed
+  const socket = useMemo(()=>io('https://chatmate-oszk.onrender.com'),[]) // here put the url of deployed server when deployed
   useEffect(() => {
 
       const setVideoStream=async()=>{
