@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import React, { useEffect, useRef, useState } from "react";
 import { toast } from "react-hot-toast/headless";
 import AgoraRTM from "agora-rtm-sdk";
@@ -112,32 +112,37 @@ const VideoChat: React.FC<VideoChatProps> = () => {
   }, [agoraRTMInitialized, remoteUid, rtmClient]);
 
   return (
-    <div className="grid  grid-cols-2 gap-[2rem] ">
-      <video
-        ref={localVideoRef}
-        className="video-player bg-black w-full h-[300px] "
-        autoPlay
-        playsInline
-      />
-      <video
-        ref={remoteVideoRef}
-        className="video-player bg-black w-full h-[300px] "
-        autoPlay
-        playsInline
-      />
-      <input
-        type="text"
-        placeholder="Enter Remote UID"
-        value={remoteUid}
-        onChange={(e) => setRemoteUid(e.target.value)}
-      />
-      <input
-        type="text"
-        placeholder="Enter Channel Name"
-        value={channelName}
-        onChange={(e) => setChannelName(e.target.value)}
-      />
-    </div>
+    <>
+      <div className="grid  grid-cols-2 gap-[2rem] ">
+        <video
+          ref={localVideoRef}
+          className="video-player bg-black w-full h-[300px] "
+          autoPlay
+          playsInline
+        />
+        <video
+          ref={remoteVideoRef}
+          className="video-player bg-black w-full h-[300px] "
+          autoPlay
+          playsInline
+        />
+      </div>
+      <div id="controls">
+        <div className="control-container" id="camera-btn">
+          <img src="icons/camera.png" />
+        </div>
+
+        <div className="control-container" id="mic-btn">
+          <img src="icons/mic.png" />
+        </div>
+
+        <a href="lobby.html">
+          <div className="control-container" id="leave-btn">
+            <img src="icons/phone.png" />
+          </div>
+        </a>
+      </div>
+    </>
   );
 };
 export default VideoChat;
