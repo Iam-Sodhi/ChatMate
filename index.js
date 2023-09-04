@@ -1,11 +1,9 @@
 const app = require("express")();
 const {Server} =require("socket.io");
-const io =new Server(8000,{
+const PORT = process.env.PORT || 5000;
+const io =new Server(PORT,{
 	cors: true,
 })
-
-
-const PORT = process.env.PORT || 5000;
 
 app.get('/', (req, res) => {
 	res.send('Running');
@@ -28,4 +26,4 @@ io.on("connection", (socket) => {
 	});
 });
 
-//server.listen(PORT, () => console.log(`Server is running on port ${PORT}`));
+//app.listen(PORT, () => console.log(`Server is running on port ${PORT}`));

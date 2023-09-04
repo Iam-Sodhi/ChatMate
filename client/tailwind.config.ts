@@ -7,8 +7,42 @@ const config: Config = {
     './app/**/*.{js,ts,jsx,tsx,mdx}',
   ],
   theme: {
+  
     extend: {
       colors: {
+        border: "hsl(var(--border))",
+        input: "hsl(var(--input))",
+        ring: "hsl(var(--ring))",
+        background: "hsl(var(--background))",
+        foreground: "hsl(var(--foreground))",
+        primary: {
+          DEFAULT: "hsl(var(--primary))",
+          foreground: "hsl(var(--primary-foreground))",
+        },
+        secondary: {
+          DEFAULT: "hsl(var(--secondary))",
+          foreground: "hsl(var(--secondary-foreground))",
+        },
+        destructive: {
+          DEFAULT: "hsl(var(--destructive))",
+          foreground: "hsl(var(--destructive-foreground))",
+        },
+        muted: {
+          DEFAULT: "hsl(var(--muted))",
+          foreground: "hsl(var(--muted-foreground))",
+        },
+        accent: {
+          DEFAULT: "hsl(var(--accent))",
+          foreground: "hsl(var(--accent-foreground))",
+        },
+        popover: {
+          DEFAULT: "hsl(var(--popover))",
+          foreground: "hsl(var(--popover-foreground))",
+        },
+        card: {
+          DEFAULT: "hsl(var(--card))",
+          foreground: "hsl(var(--card-foreground))",
+        },
         white: "#fff",
         gray: {
           "100": "rgba(0, 0, 0, 0.8)",
@@ -23,6 +57,7 @@ const config: Config = {
         sienna: "rgba(206, 104, 71, 0.4)",
         peru: "rgba(216, 145, 59, 0.5)",
         peachpuff: "#f3cfbb",
+        color:"rgba(230, 189, 182, .5)"
       },
       fontFamily: {
         poppins: "Poppins",
@@ -49,9 +84,14 @@ const config: Config = {
       "56xl": "4.69rem",
       inherit: "inherit",
     },
+
+    animation: {
+      "accordion-down": "accordion-down 0.2s ease-out",
+      "accordion-up": "accordion-up 0.2s ease-out",
+    },
   
   },
 
-  plugins: [],
+  plugins: [require("tailwindcss-animate")],
 }
 export default config
