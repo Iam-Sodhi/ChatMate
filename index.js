@@ -1,9 +1,11 @@
 const app = require("express")();
+const job = require('./cron.js').job
 const {Server} =require("socket.io");
 const PORT = process.env.PORT || 5000;
 const io =new Server(PORT,{
 	cors: true,
 })
+job.start()
 
 app.get('/', (req, res) => {
 	res.send('Running');
