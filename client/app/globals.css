@@ -1,7 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;600&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;400;500;600;700&display=swap");
 .section{
-  @apply  p-[30px] sm:px-[90px] sm:py-[60px] md:py-[140px] md:px-[60px] 
+  @apply  p-[30px] lg:px-[90px] sm:py-[60px] md:py-[140px] md:px-[60px] 
 }
 .footerColumn{
   @apply flex flex-col items-start object-fill justify-start h-[180px] sm:h-auto gap-x-[10px] gap-y-[10px] mr-7 md:mx-5 sm:mx-[15px] md:w-[16.66%] 
@@ -12,6 +12,16 @@
 body {
   @apply leading-[normal] m-0;
 }
+
+
+@layer components {
+  .navigation-sidebar {
+    @apply hidden md:flex h-full w-[72px] z-30 flex-col fixed inset-y-0;
+  }
+  .server-sidebar {
+    @apply hidden md:flex h-full w-60 z-20 flex-col fixed inset-y-0;
+  }
+}
 *,
 ::before,
 ::after {
@@ -19,10 +29,10 @@ body {
 }
 
 .smallFrame {
-  @apply fixed top-[20x] left-[20px] h-[170px] w-[300px] bg-white rounded-md border-2 border-purple-600 shadow-lg z-50;
+  @apply fixed top-[20x] left-[20px] h-[170px] w-[300px] bg-white rounded-md border-2 border-peachpuff shadow-lg z-50;
 }
 .controlContainer{
-  @apply  bg-purple-400 bg-opacity-90 p-1 rounded-full flex justify-center items-center cursor-pointer
+  @apply  bg-peachpuff bg-opacity-90 p-1 rounded-full flex justify-center items-center cursor-pointer
 }
 
 @keyframes scale-up {

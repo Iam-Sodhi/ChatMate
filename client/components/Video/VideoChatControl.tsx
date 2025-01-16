@@ -1,5 +1,5 @@
 "use client";
-import { useSocketContext } from "@/context/SocketContext";
+import { useSocketContext } from "@/context/SocketContext1";
 import { Mic, MicOff, Phone, Videocam, VideocamOff } from "@mui/icons-material";
 import Link from "next/link";
 import React, { useState,useCallback } from "react";
@@ -8,8 +8,7 @@ type VideoChatControlProps = {};
 
 const VideoChatControl: React.FC<VideoChatControlProps> = () => {
 
-   const {leaveCall} =useSocketContext();
-  const { stream } = useSocketContext();
+  const { stream,leaveCall } = useSocketContext();
   const [isCameraOn, setIsCameraOn] = useState(false);
   const [isMicrophoneOn, setIsMicrophoneOn] = useState(false);
 
@@ -39,9 +38,9 @@ const VideoChatControl: React.FC<VideoChatControlProps> = () => {
       <div className="controlContainer">
         <button className="bg-transparent z-50" onClick={toggleCamera}>
           {isCameraOn ? (
-            <VideocamOff className="h-12 w-12" />
+            <VideocamOff className="h-14 w-14" />
           ) : (
-            <Videocam className="h-12 w-12" />
+            <Videocam className="h-14 w-14" />
           )}
         </button>
       </div>
@@ -56,7 +55,7 @@ const VideoChatControl: React.FC<VideoChatControlProps> = () => {
         </button>
       </div>
         <div className="controlContainer">
-            <button onClick={handleCallEnd}>
+            <button onClick={leaveCall}>
             <Phone className="h-12 w-12" />
             </button>
         </div>

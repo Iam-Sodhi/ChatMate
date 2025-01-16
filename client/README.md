@@ -1,34 +1,55 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Deployment Link:
+https://chatmate-gsodhi.vercel.app/
 
-## Getting Started
+# About:
+This is a realtime chat application (mobile responsive) with features of one-to-one video callings and other features of making servers , channels and personal chat with others like discord. The feature of dark and
+Light mode also present. 
+## TechStack used: 
+**Next.js** , Prisma, **Typescript**, **Socket.io**,  Tailwind CSS, Framer Motion, Upload Thing, **PlanetScale MySQL database** , Resend Email, Clerk etc.
 
-First, run the development server:
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+ 
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+ <img width="1109" alt="Screenshot 2023-10-06 061215" src="https://github.com/Iam-Sodhi/ChatMate_Frontend/assets/129111379/2bab90fb-35fd-427e-aec4-53ff503ac3f8">
 
-## Learn More
 
-To learn more about Next.js, take a look at the following resources:
+ 
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
 
-## Deploy on Vercel
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+<img width="921" alt="Screenshot 2023-10-05 050315" src="https://github.com/Iam-Sodhi/ChatMate_Frontend/assets/129111379/42e34f07-8d6e-40ef-8b9c-85f3f1974a23">
+
+
+
+
+
+
+<img width="1120" alt="Screenshot 2023-10-06 061358" src="https://github.com/Iam-Sodhi/ChatMate_Frontend/assets/129111379/279e3040-1c11-495c-af92-87498d04e70d">
+<img width="1120" alt="Screenshot 2023-10-06 232428" src="https://github.com/Iam-Sodhi/ChatMate_Frontend/assets/129111379/5572dd1c-c7a0-4ccb-81fa-f7698bf0b0b8">
+
+
+
+<img width="1120" alt="Screenshot 2023-10-06 232454" src="https://github.com/Iam-Sodhi/ChatMate_Frontend/assets/129111379/9343eec8-0657-4a8c-8a07-1379c39a93ad">
+
+
+
+<img width="1120" alt="Screenshot 2023-10-06 232534" src="https://github.com/Iam-Sodhi/ChatMate_Frontend/assets/129111379/b1ab4c05-26d6-45b8-b938-e7ea93cbd4a7">
+
+<img width="1120" alt="Screenshot 2023-10-06 062142" src="https://github.com/Iam-Sodhi/ChatMate_Frontend/assets/129111379/0b095a8c-2737-4410-9c3e-3089dbbe8c76">
+
+<img width="1108" alt="Screenshot 2023-10-06 232320" src="https://github.com/Iam-Sodhi/ChatMate_Frontend/assets/129111379/53274b79-265a-499f-9993-8058bcb2571e">
+
+
+### The email that I receive when someone contact me form the **'Contact Us'** page:
+  (**DISCLAIMER**: This is the fun email sent from one of my cousin.)
+  
+
+<img width="1120" alt="Screenshot 2023-10-06 213852" src="https://github.com/Iam-Sodhi/ChatMate_Frontend/assets/129111379/318b457b-0b24-4b92-a030-40f5889b3fc2">
+
+
+
+

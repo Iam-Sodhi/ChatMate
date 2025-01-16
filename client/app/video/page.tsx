@@ -1,16 +1,18 @@
 import VideoChat from "@/components/Video/VideoChat";
-import ContextProvider from "@/context/SocketContext";
-
+import { ContextProvider } from "@/context/SocketContext1";
 export default function Video(){
 
     return (
        <>
 
-       {/* <Lobby /> */}
-        <ContextProvider> 
+         
+  <ContextProvider>
 
        <VideoChat /> 
-        </ContextProvider> 
+  </ContextProvider>
+
+
+
        </>
     )
 }
